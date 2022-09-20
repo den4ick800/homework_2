@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<HTML>
+		<BODY>
+			<a id="download" download="myImage.jpg" href="" onclick="download_img(this);"></a>
+				<canvas id='lesson02' width='500' height='400' style='background: #D8BFD8'/>
+		<script>
+				let canvas = document.getElementById('lesson02');
+				let ctx = canvas.getContext('2d');
+			
+			var x = 0;
+			var y = 0;
+			var dif_x=1;
+			var dif_y=1;
+			var img = new Image();
+			img.src = "./image_number_one-2.png";
+			img.onload = function() {
+				setInterval(draw, 20);
+			}
+
+			function draw() {
+				ctx.clearRect(0,0,canvas.width, canvas.height);
+				ctx.drawImage(img, x,y);
+				if(dif_x==1){
+				x++;
+				}
+				else
+				{
+					x--;
+				}
+				if(dif_y==1){
+				y++;
+				}
+				else
+				{
+					y--;
+				}
+				if(x==410){
+					dif_x=-1;
+				}
+				if(x==0){
+					dif_x=1;
+				}	
+				if(y==330){
+					dif_y=-1;
+				}
+				if(y==0){
+					dif_y=1;
+				}
+			}
+		</script>
+</body>
+</html>
